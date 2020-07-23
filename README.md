@@ -40,4 +40,6 @@ if __name__ == '__main__':
 
 ```
 Result:
+
+
 ![Result](/DrawDB/res.png)
