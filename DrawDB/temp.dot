@@ -1,0 +1,38 @@
+digraph g {
+graph [rankdir = "LR"];
+node [fontsize = "16";shape = "ellipse";style="filled";];
+edge [arrowhead = none];
+
+   Person
+    [
+        shape = "none"
+        label = <<table border="0" cellspacing="0"> <tr><td   bgcolor="red" border="1"><b>Person</b></td></tr> 
+ <tr><td  port="ID"  border="1"><b>ID</b></td></tr> 
+ <tr><td port="Name" border="1">Name</td></tr> 
+ <tr><td port="Family" border="1">Family</td></tr> </table>>
+    ]
+Person:ID -> Car:PersonID
+Person:ID -> House:PersonID
+
+   Car
+    [
+        shape = "none"
+        label = <<table border="0" cellspacing="0"> <tr><td   bgcolor="red" border="1"><b>Car</b></td></tr> 
+ <tr><td  port="ID"  border="1"><b>ID</b></td></tr> 
+ <tr><td port="PersonID" border="1">PersonID</td></tr> 
+ <tr><td port="CarType" border="1">CarType</td></tr> </table>>
+    ]
+
+
+   House
+    [
+        shape = "none"
+        label = <<table border="0" cellspacing="0"> <tr><td   bgcolor="red" border="1"><b>House</b></td></tr> 
+ <tr><td  port="ID"  border="1"><b>ID</b></td></tr> 
+ <tr><td port="PersonID" border="1">PersonID</td></tr> 
+ <tr><td port="Price" border="1">Price</td></tr> 
+ <tr><td port="Rooms" border="1">Rooms</td></tr> 
+ <tr><td port="Meters" border="1">Meters</td></tr> </table>>
+    ]
+
+}

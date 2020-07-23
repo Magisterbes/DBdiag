@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>9830905b-6303-4a0b-9a1f-9bd63b245bc9</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>DrawDB.py</StartupFile>
+    <StartupFile>draw_db.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DrawDB.py" />
+    <Compile Include="draw_db.py" />
+    <Compile Include="io_part.py" />
+    <Compile Include="table.py" />
+    <Compile Include="graph.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
