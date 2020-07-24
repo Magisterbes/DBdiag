@@ -1,0 +1,24 @@
+- person:
+  - keys:
+    - id
+  - fields:
+    - name
+    - family
+  - links:
+    - person.id-car.personid
+    - person.id-house.personid
+- car:
+  - keys:
+    - id
+  - fields:
+    - personid
+    - cartype
+    - color
+- house:
+  - keys:
+    - id
+  - fields:
+    - personid
+    - price
+    - rooms
+    - inches
