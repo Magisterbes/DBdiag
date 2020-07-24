@@ -39,6 +39,47 @@ if __name__ == '__main__':
 
 
 ```
+
+YAML file might be used:
+```yaml
+- person:
+  - keys:
+    - id
+  - fields:
+    - name
+    - family
+  - links:
+    - person.id-car.personid
+    - person.id-house.personid
+- car:
+  - keys:
+    - id
+  - fields:
+    - personid
+    - cartype
+    - color
+- house:
+  - keys:
+    - id
+  - fields:
+    - personid
+    - price
+    - rooms
+    - inches
+```
+
+```python
+import graph as grp
+import yaml
+
+if __name__ == '__main__':
+    
+    diag = grp.diagram()
+    diag.import_yaml(r'base.yaml')
+    diag.draw_diagram()
+
+```
+
 Result:
 
 
