@@ -3,6 +3,7 @@ import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 import io_part as io
 import os
+import yaml
 
 graph_pattern = '''digraph g {
 graph [rankdir = "LR"];
@@ -19,6 +20,25 @@ class diagram:
 
     def add_table(self,name,keys,fields,links):
         self.nodes.append(tbl.table(name,keys,fields,links))
+
+    def add_table_from_dict(self, table_dict):
+        for table_name, data in table_dict.items():
+            params = {'keys':[],'fields':[],'links':[]}
+            for node in data:
+                node_name = next(iter(node))
+                params[node_name] = node[node_name]
+            self.add_table(
+                name=table_name,
+                keys=params['keys'],
+                fields=params['fields'],
+                links=params['links'],
+                )
+
+    def import_yaml(self, yaml_file_name):
+        with open(yaml_file_name, 'r') as file:
+            data = yaml.load(file, Loader=yaml.FullLoader)
+            for table_dict in data:
+                self.add_table_from_dict(table_dict)
 
     def draw_diagram(self):
         table_groups = []
