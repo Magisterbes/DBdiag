@@ -6,7 +6,7 @@ import os
 import yaml
 
 graph_pattern = '''digraph g {
-graph [rankdir = "LR"];
+graph [rankdir = "LR"; dpi=150];
 node [fontsize = "16";shape = "ellipse";style="filled";];
 edge [arrowhead = none];
 %s
@@ -39,6 +39,16 @@ class diagram:
             data = yaml.load(file, Loader=yaml.FullLoader)
             for table_dict in data:
                 self.add_table_from_dict(table_dict)
+
+    def export_yaml(self):
+        yaml_view = []
+
+        for table in self.nodes:
+            yaml_view.append(table.to_yaml())
+
+        yaml_view = "\n".join(yaml_view)
+        io.SaveJustLines([yaml_view],"yaml.yaml",True)
+        
 
     def draw_diagram(self):
         table_groups = []

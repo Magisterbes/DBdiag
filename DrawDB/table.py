@@ -24,6 +24,32 @@ class table:
         self.name = name
     
 
+    def to_yaml(self):
+        rows = []
+
+        rows.append("- {0}:".format(self.name))
+
+        if len(self.keys)>0:
+            rows.append("  - keys:")
+            for key in self.keys:
+                rows.append("    - {0}".format(key))
+          
+        if len(self.fields)>0:
+            rows.append("  - fields:")
+            for field in self.fields:
+                rows.append("    - {0}".format(field))
+        
+        if len(self.links)>0:
+            rows.append("  - links:")
+            for link in self.links:
+                rows.append("    - {0}".format(link))
+
+
+        return "\n".join(rows)
+
+
+
+
     def draw_table(self):
 
         rows = []
