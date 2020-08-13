@@ -44,28 +44,28 @@ YAML file might be used:
 ```yaml
 - person:
   - keys:
-    - id
+    - id, int
   - fields:
-    - name
-    - family
+    - name, varchar
+    - family, varchar
   - links:
     - person.id-car.personid
     - person.id-house.personid
 - car:
   - keys:
-    - id
+    - id, int
   - fields:
-    - personid
-    - cartype
-    - color
+    - personid, int
+    - cartype, varchar
+    - color, varchar
 - house:
   - keys:
-    - id
+    - id, int
   - fields:
-    - personid
-    - price
-    - rooms
-    - inches
+    - personid, int
+    - price, numeric
+    - rooms, int 
+    - inches, numeric
 ```
 
 ```python
@@ -82,5 +82,51 @@ if __name__ == '__main__':
 
 Result:
 
-
 ![Result](/DrawDB/res.png)
+
+
+**Export to Postgres**
+
+All types must be introduced
+
+```python
+import graph as grp
+import yaml
+
+if __name__ == '__main__':
+    
+    diag = grp.diagram()
+    diag.import_yaml(r'base.yaml')
+    diag.to_postgres()
+
+```
+
+Result:
+
+```SQL
+CREATE TABLE person
+(
+    id integer primary key,
+name varchar (255),
+family varchar (255)
+); 
+
+CREATE TABLE car
+(
+    id integer primary key,
+personid integer,
+cartype varchar (255),
+color varchar (255)
+); 
+
+CREATE TABLE house
+(
+    id integer primary key,
+personid integer,
+price numeric (15,5),
+rooms integer,
+inches numeric (15,5)
+); 
+
+```
+
