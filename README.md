@@ -1,8 +1,8 @@
 # Tool to build DB Diagrams in python
 
-1. [Straight code example](#straight_code_example)
+1. [Straight code example](#straight-code-example)
 2. [YAML](#yaml)
-3. [Export to Postgres](#export_to_postgres)
+3. [Export to Postgres](#export-to-postgres)
 
 
 **GraphViz used to render diagram. Should be installed. [GraphViz](https://www.graphviz.org/)**
