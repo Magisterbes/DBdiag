@@ -1,8 +1,14 @@
 # Tool to build DB Diagrams in python
 
+# Table of Contents
+1. [Straight code example](#straight_code_example)
+2. [YAML](#YAML)
+3. [Export to Postgres](#export_to_postgres)
+
+
 **GraphViz used to render diagram. Should be installed. [GraphViz](https://www.graphviz.org/)**
 
-Code example:
+##Straight code example:
 
 ```python
 
@@ -40,7 +46,7 @@ if __name__ == '__main__':
 
 ```
 
-YAML file might be used:
+##YAML:
 ```yaml
 - person:
   - keys:
@@ -85,7 +91,7 @@ Result:
 ![Result](/DrawDB/res.png)
 
 
-**Export to Postgres**
+##Export to Postgres
 
 All types must be introduced
 
@@ -101,7 +107,7 @@ if __name__ == '__main__':
 
 ```
 
-Result:
+Result in file "create_sql.sql":
  
 ```SQL
 CREATE TABLE person
