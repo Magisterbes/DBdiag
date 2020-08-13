@@ -92,8 +92,7 @@ if __name__ == '__main__':
 
 Result:
 
-![Result](/DrawDB/res.png)
-<img src="/DrawDB/res.png" width="200">
+<img src="/DrawDB/res.png" width="400">
 
 ## Export to postgres
 
