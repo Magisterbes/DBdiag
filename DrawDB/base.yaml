@@ -1,24 +1,24 @@
 - person:
   - keys:
-    - id
+    - id, int
   - fields:
-    - name
-    - family
+    - name, varchar
+    - family, varchar
   - links:
     - person.id-car.personid
     - person.id-house.personid
 - car:
   - keys:
-    - id
+    - id, int
   - fields:
-    - personid
-    - cartype
-    - color
+    - personid, int
+    - cartype, varchar
+    - color, varchar
 - house:
   - keys:
-    - id
+    - id, int
   - fields:
-    - personid
-    - price
-    - rooms
-    - inches
+    - personid, int
+    - price, numeric
+    - rooms, int 
+    - inches, numeric

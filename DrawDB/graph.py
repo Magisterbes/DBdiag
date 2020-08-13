@@ -4,13 +4,7 @@ import matplotlib.pyplot as plt
 import io_part as io
 import os
 import yaml
-
-graph_pattern = '''digraph g {
-graph [rankdir = "LR"; dpi=150];
-node [fontsize = "16";shape = "ellipse";style="filled";];
-edge [arrowhead = none];
-%s
-}'''
+import patterns as pt
 
 
 class diagram:
@@ -59,7 +53,7 @@ class diagram:
         
 
         tables = "\n".join(table_groups)
-        tables = graph_pattern.replace("%s",tables)
+        tables = pt.graph_pattern.replace("%s",tables)
 
         io.SaveJustLines([tables],"temp.dot",True)
         os.system("dot temp.dot -Tpng -ores.png")
@@ -67,4 +61,19 @@ class diagram:
         im = mpimg.imread('res.png')
         plt.imshow(im)
         plt.show()
+
+    def to_postgres(self):
+
+        query = []
+
+        for table in self.nodes:
+            query.append(table.to_postgres())        
+        
+        query = "\n".join(query)
+
+        io.SaveJustLines([query],"create_sql.sql",True)
+
+        pass
+
+
 
