@@ -46,6 +46,9 @@ if __name__ == '__main__':
 ```
 
 ## YAML:
+
+Data file example. Types are not obligatory:
+
 ```yaml
 - person:
   - keys:
@@ -72,6 +75,8 @@ if __name__ == '__main__':
     - rooms, int 
     - inches, numeric
 ```
+
+Python code:
 
 ```python
 import graph as grp
